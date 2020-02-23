@@ -54,6 +54,21 @@ class CoachesController < ApplicationController
     end
 
     def update 
+
+        @coach = current_coach
+
+        coach_params = params.require(:coach).permit(:username, :email, :firstname, :lastename, :phone_number, :photo_file)
+
+        
+
+        if @coach.update(coach_params)
+
+            redirect_to profil_path, success: 'Vos informations on bien été mis à jour'
+
+        else
+
+            render :edit
+        end
     
     end
     

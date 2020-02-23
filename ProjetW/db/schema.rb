@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_160447) do
+ActiveRecord::Schema.define(version: 2020_02_23_172216) do
 
   create_table "coaches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_22_160447) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "confirmed"
     t.string "confirmation_token"
+    t.boolean "photo"
+    t.string "phone_number"
   end
 
 end

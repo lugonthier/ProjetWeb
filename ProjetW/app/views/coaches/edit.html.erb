@@ -11,11 +11,23 @@
 
 <div class="card">
 
-    <h5 class="card-header">S'inscrire</h5>
+    <h5 class="card-header">Modifier mes informations</h5>
 
     <div class="card-body">
 
     <%=form_for @coach, url: profil_path, class: 'form-horizontal' do |f| %>
+
+        <% if @coach.photo %>
+            <%= image_tag @coach.photo_url %>
+        <% end %>
+        <div class="form-group">
+            <%= f.label :photo_file, "photo de profil", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.file_field :photo_file, class: 'form-control' %>
+            </div>
+
+        </div>
+
         
         <div class="form-group">
             <%= f.label :username, "Nom d'utilisateur", class: 'col-md-4 control-label'%>
@@ -33,18 +45,28 @@
 
         </div>
 
+        
+        
         <div class="form-group">
-            <%= f.label :password, "Mot de passe", class: 'col-md-4 control-label'%>
+            <%= f.label :firstname, "Prénom", class: 'col-md-4 control-label'%>
             <div class="col-md-6">
-                <%= f.password_field :password, class: 'form-control' %>
+                <%= f.text_field :firstname, class: 'form-control' %>
             </div>
 
         </div>
-        
+
         <div class="form-group">
-            <%= f.label :password_confirmation, "Confirmer le mot de passe", class: 'col-md-4 control-label'%>
+            <%= f.label :lastname, "Nom", class: 'col-md-4 control-label'%>
             <div class="col-md-6">
-                <%= f.password_field :password_confirmation, class: 'form-control' %>
+                <%= f.text_field :lastname, class: 'form-control' %>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <%= f.label :phone_number, "numéro de téléphone", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.text_field :phone_number, class: 'form-control' %>
             </div>
 
         </div>
