@@ -5,7 +5,7 @@
 
     <div class="card-body">
 
-    <%=form_for :coach, url: sessions_path, class: 'form-horizontal' do |f| %>
+    <%=form_for :coach, url: new_session_path, class: 'form-horizontal' do |f| %>
         
         <div class="form-group">
             <%= f.label :username, "Nom d'utilisateur ou email", class: 'col-md-4 control-label'%>

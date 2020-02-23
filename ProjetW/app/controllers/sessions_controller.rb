@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 
   skip_before_action :only_signed_in, only: [:new, :create]
 
+  before_action :only_signed_out, only: [:new, :creat]
+
   def new
 
   end
@@ -26,6 +28,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+
+    session.destroy
+
+    redirect_to new_session_path, success: 'Vous êtes déconnecté.'
 
   end
 end

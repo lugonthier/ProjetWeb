@@ -2,6 +2,8 @@ class CoachesController < ApplicationController
 
     skip_before_action :only_signed_in, only: [:new, :create, :confirm]
 
+    before_action :only_signed_out, only: [:new, :create, :confirm]
+
     def new
         @coach = Coach.new
     end
@@ -47,7 +49,7 @@ class CoachesController < ApplicationController
 
     def edit
 
-        @coach = Coach.find(session[:auth]['id'])
+        @coach = current_coach
 
     end
 
