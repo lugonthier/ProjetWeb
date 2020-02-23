@@ -1,5 +1,6 @@
 class CoachesController < ApplicationController
 
+    skip_before_action :only_signed_in, only: [:new, :create, :confirm]
 
     def new
         @coach = Coach.new
@@ -35,13 +36,23 @@ class CoachesController < ApplicationController
 
             @coach.save(validate: false)
 
-            session[:auth] = {id: @user.id}
+            session[:auth] = @coach.to_session
             
-            redirect_to new_coach_path, success: 'Votre compte a bien été confirmé'
+            redirect_to profil_path, success: 'Votre compte a bien été confirmé'
 
         else
             redirect_to new_coach_path, danger: 'Ce token ne semble pas être valide'
         end
+    end
+
+    def edit
+
+        @coach = Coach.find(session[:auth]['id'])
+
+    end
+
+    def update 
+    
     end
     
 end

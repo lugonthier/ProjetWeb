@@ -1,0 +1,37 @@
+
+<div class="card">
+
+    <h5 class="card-header">Se connecter</h5>
+
+    <div class="card-body">
+
+    <%=form_for :coach, url: sessions_path, class: 'form-horizontal' do |f| %>
+        
+        <div class="form-group">
+            <%= f.label :username, "Nom d'utilisateur ou email", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.text_field :username, class: 'form-control' %>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <%= f.label :password, "Mot de passe", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.password_field :password, class: 'form-control' %>
+            </div>
+
+        </div>
+
+        <div class="form-groupe">
+            <div class="col-md-offset-4 col-md-6 ">
+                <button type="submit" class="btn btn-primary">
+                    Se connecter
+                </button>
+            </div>
+        </div>
+        <% end %>
+
+    </div>
+</div>

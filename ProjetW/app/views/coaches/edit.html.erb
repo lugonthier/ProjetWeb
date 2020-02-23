@@ -1,0 +1,63 @@
+<% if @coach.errors.any? %>
+    <div class="alert alert-danger">
+        <ul>
+            <% @coach.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+
+<div class="card">
+
+    <h5 class="card-header">S'inscrire</h5>
+
+    <div class="card-body">
+
+    <%=form_for @coach, url: profil_path, class: 'form-horizontal' do |f| %>
+        
+        <div class="form-group">
+            <%= f.label :username, "Nom d'utilisateur", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.text_field :username, class: 'form-control' %>
+            </div>
+
+        </div>
+
+        <div class="form-group ">
+            <%= f.label :email, "Email", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.email_field :email, class: 'form-control' %>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <%= f.label :password, "Mot de passe", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.password_field :password, class: 'form-control' %>
+            </div>
+
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :password_confirmation, "Confirmer le mot de passe", class: 'col-md-4 control-label'%>
+            <div class="col-md-6">
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+
+        </div>
+    
+
+        <div class="form-groupe">
+            <div class="col-md-offset-4 col-md-6 ">
+                <button type="submit" class="btn btn-primary">
+                    valider
+                </button>
+            </div>
+        </div>
+        <% end %>
+
+    </div>
+</div>
