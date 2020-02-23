@@ -1,0 +1,10 @@
+
+
+Bonjour <%= @coach.username %>,
+
+    pour valider votre inscription chez trainingOrga,
+    vous pouvez valider votre compte sur le lien suivant:
+
+    <%= confirm_coach_url(id: @coach.id, token: @coach.confirmation_token) %>
+
+Merci
