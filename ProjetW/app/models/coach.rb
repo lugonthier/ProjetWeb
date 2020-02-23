@@ -10,6 +10,12 @@ class Coach < ApplicationRecord
      format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/},
      uniqueness: {case_sensitive: false}
 
+     validates :firstname,
+     format: {with: /\A[a-z]+$\z/, message: "ne peut contenir que des lettres en minuscules"} 
+
+     validates :lastname,
+     format: {with: /\A^[a-z]+$\z/, message: "ne peut contenir que des lettres en minuscules"} 
+
     def to_session
 
       {id: id}

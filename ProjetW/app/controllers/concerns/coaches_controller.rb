@@ -11,7 +11,7 @@ class CoachesController < ApplicationController
 
     def create
 
-        coach_params = params.require(:coach).permit(:username, :email, :password, :password_confirmation)
+        coach_params = params.require(:coach).permit(:username, :lastname, :firstname, :email, :password, :password_confirmation)
         @coach = Coach.new(coach_params)
 
         if @coach.valid?
