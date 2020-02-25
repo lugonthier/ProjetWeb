@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     coach_params = params.require(:coach)
 
-    @coach = Coach.where(username: coach_params[:username]).or(Coach.where(email: coach_params[:username])).first
+    @coach = Coach.where('confirmed = true AND (username = :username OR email = :username)', username: coach_params[:username]).first
 
     if @coach and @coach.authenticate(coach_params[:password]) and Coach.where(confirmed: true)
       

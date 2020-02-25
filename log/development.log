@@ -6350,3 +6350,2521 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4167)
 
 
+Started GET "/" for 127.0.0.1 at 2020-02-24 18:04:08 +0100
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1937)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 106ms (Views: 60.8ms | ActiveRecord: 4.5ms | Allocations: 19075)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 18:04:10 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 566)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 5015)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 18:04:16 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0rLBP+Xyvd8lkkMHzSlIf1mxdZmvgWbzIZ2mJbYPmBGEQQFxuUYxPCHPuqDZpz6HPGq3alq9lLkXAR/9x26Oow==", "coach"=>{"username"=>"teddy", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (1.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (`coaches`.`username` = 'teddy' OR `coaches`.`email` = 'teddy') ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 241ms (ActiveRecord: 1.7ms | Allocations: 1747)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:04:16 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1485)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.6ms | Allocations: 7286)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:04:26 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"XUURf98/8BBciZrJIRp3xy8dnizUDk+gr0LsxKVbSuPT3+OTkMklkozHL5lNv0g9bK/D9C+Pv4AB0sNAh7PqUw==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff194e44340 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-16ks3cp.png>, @original_filename="Capture d’écran 2020-02-04 à 17.24.48.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"Capture d\xE2\x80\x99\xC3\xA9cran 2020-02-04 \xC3\xA0 17.24.48.png\"\r\nContent-Type: image/png\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 360ms (ActiveRecord: 1.8ms | Allocations: 5854)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:04:26 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 824)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.3ms | Allocations: 6289)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:06:52 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 896)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 10.1ms | ActiveRecord: 4.2ms | Allocations: 15299)
+
+
+Started GET "/publiccoaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:06:52 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/publiccoaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:07:00 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"ZByj/iz4OcV4rTDXKbcqUpKeWJQXY2eS5UGafGfLKWHqhlESYw7sR6jjhYdFEhWo0SwFTOzil7JL0bX4RSOJ0Q==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff1988dd1f0 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-jkmobe.png>, @original_filename="Capture d’écran 2020-02-04 à 17.24.48.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"Capture d\xE2\x80\x99\xC3\xA9cran 2020-02-04 \xC3\xA0 17.24.48.png\"\r\nContent-Type: image/png\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 380ms (ActiveRecord: 1.9ms | Allocations: 5698)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:07:00 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 826)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.5ms | Allocations: 6305)
+
+
+Started GET "/publiccoaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:07:00 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/publiccoaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:07:14 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.9ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.2ms | Allocations: 898)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 10.2ms | ActiveRecord: 7.7ms | Allocations: 15370)
+
+
+Started GET "/public/coaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:07:14 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/public/coaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:08:05 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1473)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 4.6ms | Allocations: 11947)
+
+
+  
+ActionView::Template::Error (The asset "public/coaches/9/photo.jpg" is not present in the asset pipeline.):
+    18:     <%=form_for @coach, url: profil_path, class: 'form-horizontal' do |f| %>
+    19: 
+    20:         <% if @coach.photo %>
+    21:             <%= image_tag @coach.photo_url %>
+    22:         <% end %>
+    23:         <div class="form-group">
+    24:             <%= f.label :photo_file, "photo de profil", class: 'col-md-4 control-label'%>
+  
+app/views/coaches/edit.html.erb:21
+app/views/coaches/edit.html.erb:18
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:08:59 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1779)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.8ms | Allocations: 12233)
+
+
+  
+ActionView::Template::Error (undefined method `to_session' for 9:Integer
+Did you mean?  to_json):
+    18:     <%=form_for @coach, url: profil_path, class: 'form-horizontal' do |f| %>
+    19: 
+    20:         <% if @coach.photo %>
+    21:             <%= image_tag @coach.photo_url %>
+    22:         <% end %>
+    23:         <div class="form-group">
+    24:             <%= f.label :photo_file, "photo de profil", class: 'col-md-4 control-label'%>
+  
+app/models/coach.rb:42:in `photo_url'
+app/views/coaches/edit.html.erb:21
+app/views/coaches/edit.html.erb:18
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:09:25 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 897)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 11.0ms | ActiveRecord: 5.3ms | Allocations: 15288)
+
+
+Started GET "/public/coaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:09:26 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/public/coaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:09:33 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"aif1QdV8mxsOeP5QVNNF8dSJ0lvZiZ9X8ZzUA7rv6TfkvQetmopOmd42SwA4dnoLlzuPgyIIb3dfDPuHmAdJhw==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff195bfcfc8 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-1becn89.png>, @original_filename="Capture d’écran 2020-02-04 à 17.24.48.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"Capture d\xE2\x80\x99\xC3\xA9cran 2020-02-04 \xC3\xA0 17.24.48.png\"\r\nContent-Type: image/png\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 386ms (ActiveRecord: 1.9ms | Allocations: 5638)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:09:34 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 825)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 244ms (Views: 240.8ms | ActiveRecord: 0.3ms | Allocations: 6279)
+
+
+Started GET "/public/coaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:09:34 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/public/coaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:09:52 +0100
+Started GET "/public/coaches/9/photo.jpg" for 127.0.0.1 at 2020-02-24 18:09:52 +0100
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  
+ActionController::RoutingError (No route matches [GET] "/public/coaches/9/photo.jpg"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 895)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 57.5ms | ActiveRecord: 4.1ms | Allocations: 45815)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:10:06 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"dUmd4n1dIT0clo2bA/2m2mqmupqvR20VKjLHni7yLvP7028OMqv0v8zYOMtvWJkgKRTnQlTGnTWEougaDBqOQw==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff1953a3ca0 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-10iczsr.jpg>, @original_filename="WB156030189_1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"WB156030189_1.jpg\"\r\nContent-Type: image/jpeg\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 283ms (ActiveRecord: 3.0ms | Allocations: 5634)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:10:06 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.4ms | Allocations: 824)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.4ms | Allocations: 6283)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:10:24 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"4RxoJ6wY3BlxjxG9H0Sg0d60/e8yO4Q2ARuTn5xV9FpvhprL4+4Jm6HBpO1z4Z8rnQagN8m6dBavi7wbvr1U6g==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff19511c158 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-6mzawi.png>, @original_filename="Capture d’écran 2020-01-12 à 11.15.08.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"Capture d\xE2\x80\x99\xC3\xA9cran 2020-01-12 \xC3\xA0 11.15.08.png\"\r\nContent-Type: image/png\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 136ms (ActiveRecord: 1.6ms | Allocations: 5404)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:10:25 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 6274)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:10:34 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"siZ7EcjXQPeL4ftPeDt0DcqfRA4tq2ppDqV0wAcQwig8vIn9hyGVdVuvTh8Unkv3iS0Z1tYqmkmgNVtEJfhimA==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff19460b458 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-547u7i.jpg>, @original_filename="baptiste mouton.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"baptiste mouton.jpg\"\r\nContent-Type: image/jpeg\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 90ms (ActiveRecord: 1.9ms | Allocations: 5396)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:10:34 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.3ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 6279)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:13:27 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"81OTh+JXSFjf6CJTu/x7UEcBQHHmpM4eNEkgztXdqIh9yWFrraGd2g+mlwPXWUSqBLMdqR0lPj6a2Q9K9zUIOA==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff1952812a0 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-p11cz1.jpg>, @original_filename="fb_voldemort.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"fb_voldemort.jpg\"\r\nContent-Type: image/jpeg\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 80ms (ActiveRecord: 1.5ms | Allocations: 5397)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:13:27 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.3ms | Allocations: 6280)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 18:13:42 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"0U58cIHPI7bra7YwtDvHPZEfw4EGN2cv5MkPnq0+qHZf1I6czjn2NDslA2DYnvjH0q2eWf22lw9KWSAaj9YIxg==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff1952dd2d0 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200224-63228-1q4hjm1.jpg>, @original_filename="baptiste mouton.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"baptiste mouton.jpg\"\r\nContent-Type: image/jpeg\r\n">, "username"=>"teddy", "email"=>"ted.mosby@icloud.com", "firstname"=>"ted", "lastname"=>"mosby", "phone_number"=>"0671"}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'teddy' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'ted.mosby@icloud.com' AND `coaches`.`id` != 9 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://127.0.0.1:3000/profil
+Completed 302 Found in 100ms (ActiveRecord: 1.2ms | Allocations: 5395)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:13:43 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.4ms | Allocations: 6280)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:21:38 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (3.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1401)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 13.7ms | ActiveRecord: 3.3ms | Allocations: 8106)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:23:15 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1396)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.4ms | Allocations: 8099)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:24:25 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1401)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.3ms | Allocations: 8109)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:26:32 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1401)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 8098)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:26:59 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1400)
+  [1m[36mCACHE Coach Load (0.1ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.5ms | Allocations: 8099)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:28:00 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1400)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 8101)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:28:30 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1400)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 8094)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:43:48 +0100
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (1.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.4ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 1.5ms | Allocations: 6263)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:52:44 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1399)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.6ms | Allocations: 8149)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 18:53:32 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1404)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 11.4ms | ActiveRecord: 0.4ms | Allocations: 8158)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:20:27 +0100
+  [1m[35m (1.7ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (1.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 4.1ms | Allocations: 895)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 17.1ms | ActiveRecord: 1.4ms | Allocations: 15015)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-02-24 19:20:30 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"h01177JX2LNDyGVhQM4klJ1m61KVfUATUP/7cF5b3okJ14cD/aENMZOG0DEsaxtu3tS2im78sDP+b9T0fLN+OQ=="}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 992)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:20:30 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 563)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 4987)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:20:40 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0XBRdbToUMxILIU+znhNRitZ3BlG+kU4KGkxIVtUY15OOEGLB4rBgEF1X5r/ReqbFmyjn7WTEDVQJN23GNyvgQ==", "coach"=>{"username"=>"lucas.gonthier", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 0.0ms | Allocations: 98166)
+
+
+  
+NameError (undefined local variable or method `user_params' for #<SessionsController:0x00007ff195ba6308>):
+  
+app/controllers/sessions_controller.rb:15:in `create'
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:21:10 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 320)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4337)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:21:20 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"OqGqFOMKDzEP5OO/d40jljViHZBMMLL99LR+1ABcIIOl6brqUGiefQa9ORtGsIRLCFdiFr9Z5/CM+ZJCQ9TsXA==", "coach"=>{"username"=>"lucas.gonthier", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (8.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'lucas.gonthier')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 26ms (ActiveRecord: 19.7ms | Allocations: 2855)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:21:20 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 4166)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:21:23 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1317)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 12083)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 19:22:01 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"2w+lWDYh0MD8yZKBqNu3ZfH83ByyUMRWMcF/a6V5uhGqAlttpThemWWB872e+AaGmt2A6VzuvfOgS9xLskt38Q==", "coach"=>{"username"=>"julien.wiegandt", "firstname"=>"julien", "lastname"=>"wiegandt", "email"=>"wdf@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'julien.wiegandt' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'wdf@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 894)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 233ms (Views: 5.4ms | ActiveRecord: 0.5ms | Allocations: 8123)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 19:22:13 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"qqgCOGatwoQcxoR3MkSKXipTHhiCErEpTz+xrJV28N014BLG1c9TyBWfXtMDeS2DF2ZhnnF75CQ3cl061v48Ag==", "coach"=>{"username"=>"julien_wiegandt", "firstname"=>"julien", "lastname"=>"wiegandt", "email"=>"wdf@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'julien_wiegandt' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'wdf@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'julien_wiegandt' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'wdf@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCoach Create (39.7ms)[0m  [1m[32mINSERT INTO `coaches` (`username`, `email`, `password_digest`, `firstname`, `lastname`, `created_at`, `updated_at`, `confirmation_token`) VALUES ('julien_wiegandt', 'wdf@icloud.com', '$2a$12$UfeD58VQoDVVge2/DF.XhOT4dZjKZ4VYrEBuGCtRkvyZoPPbXE1ei', 'julien', 'wiegandt', '2020-02-24 18:22:13.779740', '2020-02-24 18:22:13.779740', 'RZwNPXb6BH9vcQg83o4yy42b')[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (23.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  Rendering coach_mailer/confirm.text.erb within layouts/mailer
+  Rendered coach_mailer/confirm.text.erb within layouts/mailer (Duration: 0.5ms | Allocations: 197)
+CoachMailer#confirm: processed outbound mail in 4.5ms
+Delivered mail 5e541455ece2b_f6fc3ff8ca64eecc409c2@MacBook-Pro-de-Lucas.local.mail (13.6ms)
+Date: Mon, 24 Feb 2020 19:22:13 +0100
+From: from@example.com
+To: wdf@icloud.com
+Message-ID: <5e541455ece2b_f6fc3ff8ca64eecc409c2@MacBook-Pro-de-Lucas.local.mail>
+Subject: Votre inscription sur TrainingOrgaProjetW
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+Bonjour julien,
+
+    pour valider votre inscription chez trainingOrga,
+    vous pouvez valider votre compte sur le lien suivant:
+
+    http://localhost:3000/coaches/10/confirm?token=RZwNPXb6BH9vcQg83o4yy42b
+
+Merci
+
+Redirected to http://127.0.0.1:3000/coaches/new
+Completed 302 Found in 422ms (ActiveRecord: 64.0ms | Allocations: 26624)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:22:13 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4625)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:22:16 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 319)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4164)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:22:25 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"LcwB8PPszcxT6DXzWnepwWjX37MxCLmlHPJ1++TANzkPD8pcu4ViV5jsUyzkudtBnU2npT8UzMoZx73qfFI7hQ==", "coach"=>{"username"=>"julien_wiegandt", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'julien_wiegandt')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms | Allocations: 1063)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:22:25 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4162)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:22:42 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ah8YPFSebWMyMPF2PyatGNn2gB3V3aXvOsRlcX856nv1VwjC5/z8LztpK9IOGwrF5MP/mya08OJCiYnnPLEmpA==", "coach"=>{"username"=>"julien_wiegandt", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'julien_wiegandt')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1037)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:22:42 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4166)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:23:46 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"S99V9DuS+9IdeaQoOuDALlxJMAZHVaFnXszpA6llZOvUl0UKiPBqnhQgfowL3WfzYXxPgLQ89GomgQWV6u2oNA==", "coach"=>{"username"=>"teddy", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'teddy')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms | Allocations: 1030)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:23:46 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4172)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:23:54 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"hSHD/V5HYltuNutvcajYtWC0AL+VR9jz60k7AZK/PzQaadMD7SXzF2dvMctAlX9oXYF/OWYujf6TBNeX0Tfz6w==", "coach"=>{"username"=>"teddy", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'teddy')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 1035)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:23:54 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4170)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:24:07 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"2c+6+lnICKsTeGyFeuGjGOmTjhwSof24EXjQkWPE74tGh6oE6qqZ5xohtiFL3ATF1KbxmuHIqLVpNTwHIEwjVA==", "coach"=>{"username"=>"teddy", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'teddy')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms | Allocations: 1035)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:24:07 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 4167)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:24:31 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4582)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 19:25:08 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"tDwuZI6LZzEyzv+6yhnLK2YET0K/6xHUZ/Tmpfmy50HFMdBRHZLpaKuGnob8OnrIDSUTt1FVaHH2fkWF7oAqoQ==", "coach"=>{"username"=>"joseph", "firstname"=>"joseph", "lastname"=>"staline", "email"=>"joseph.staline@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'joseph' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'joseph.staline@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'joseph' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'joseph.staline@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCoach Create (1.2ms)[0m  [1m[32mINSERT INTO `coaches` (`username`, `email`, `password_digest`, `firstname`, `lastname`, `created_at`, `updated_at`, `confirmation_token`) VALUES ('joseph', 'joseph.staline@icloud.com', '$2a$12$ZAC7hNPBTg2XRom8b9cQa.JQGvmHNQYTxTXCDYT2n/j6HOO1tw06y', 'joseph', 'staline', '2020-02-24 18:25:08.299981', '2020-02-24 18:25:08.299981', 'B1uPT4Kkjuz5uQzG3tEjctir')[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  Rendering coach_mailer/confirm.text.erb within layouts/mailer
+  Rendered coach_mailer/confirm.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 65)
+CoachMailer#confirm: processed outbound mail in 1.2ms
+Delivered mail 5e5415044b3e0_f6fc3ff8ca64eecc41016@MacBook-Pro-de-Lucas.local.mail (182.2ms)
+Date: Mon, 24 Feb 2020 19:25:08 +0100
+From: from@example.com
+To: joseph.staline@icloud.com
+Message-ID: <5e5415044b3e0_f6fc3ff8ca64eecc41016@MacBook-Pro-de-Lucas.local.mail>
+Subject: Votre inscription sur TrainingOrgaProjetW
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+Bonjour joseph,
+
+    pour valider votre inscription chez trainingOrga,
+    vous pouvez valider votre compte sur le lien suivant:
+
+    http://localhost:3000/coaches/11/confirm?token=B1uPT4Kkjuz5uQzG3tEjctir
+
+Merci
+
+Redirected to http://127.0.0.1:3000/coaches/new
+Completed 302 Found in 424ms (ActiveRecord: 3.0ms | Allocations: 13012)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:25:08 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 728)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4602)
+
+
+Started GET "/coaches/11/confirm?token=B1uPT4Kkjuz5uQzG3tEjctir" for 127.0.0.1 at 2020-02-24 19:25:45 +0100
+Processing by CoachesController#confirm as HTML
+  Parameters: {"token"=>"B1uPT4Kkjuz5uQzG3tEjctir", "id"=>"11"}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/profil
+Filter chain halted as :only_signed_out rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1059)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:25:45 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 775)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 6231)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:26:36 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 772)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.4ms | Allocations: 6239)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:26:39 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.9ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 772)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 1.0ms | Allocations: 6239)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:26:42 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.8ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 772)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 0.9ms | Allocations: 6234)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-02-24 19:26:44 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NS9YfuN170dPg8N4Fl62/ULiQA3JZ/c1zXhN88b3ddjx342vImw5gLdGlYvDvQVjoT0NSEuqFQ76N+uFzgTLtg=="}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 924)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:26:44 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4164)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:26:58 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"sMFGt30OgMWb1Nybw55aPwFIT84MOcMNL9dU3A/y/Hnbt7/pGtx1kfoYZHad+KwJwQiAIdOLWxsdFMNYhIJTTg==", "coach"=>{"username"=>"joseph", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'joseph')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1052)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:26:58 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 4170)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 19:27:10 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"xHpiAFM/2WmjztVf64eXnq7Cr45QKLCI1/hC4S5nHyevDJteNO0sPcICbbK14WGoboJgYY+aKJ7lO9VlpRewEA==", "coach"=>{"username"=>"joseph", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'joseph')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1046)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 19:27:10 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 4168)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:27:12 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 4594)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 19:27:32 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"sGtN3pvbgw3h+zoPBTo2NY7fe4uuoamSpQzWSGJWw2n5N7jQ60nS2rCaZtxBW2kN4ClaN7CFKmLLZaI9Fg6+sw==", "coach"=>{"username"=>"jul", "firstname"=>"jul", "lastname"=>"jul", "email"=>"jul@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCoach Create (2.9ms)[0m  [1m[32mINSERT INTO `coaches` (`username`, `email`, `password_digest`, `firstname`, `lastname`, `created_at`, `updated_at`, `confirmation_token`) VALUES ('jul', 'jul@icloud.com', '$2a$12$JCj6U.2XTPDLmt1i.T9gXuHqvFe01tBBQaFm03qyMKasiUg5Z218a', 'jul', 'jul', '2020-02-24 18:27:33.216762', '2020-02-24 18:27:33.216762', '4j7d9CkrzxHssPTKQzv168z9')[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  Rendering coach_mailer/confirm.text.erb within layouts/mailer
+  Rendered coach_mailer/confirm.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 62)
+CoachMailer#confirm: processed outbound mail in 1.1ms
+Delivered mail 5e5415953acc0_f6fc3ff8ca659de041185@MacBook-Pro-de-Lucas.local.mail (132.3ms)
+Date: Mon, 24 Feb 2020 19:27:33 +0100
+From: from@example.com
+To: jul@icloud.com
+Message-ID: <5e5415953acc0_f6fc3ff8ca659de041185@MacBook-Pro-de-Lucas.local.mail>
+Subject: Votre inscription sur TrainingOrgaProjetW
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+Bonjour jul,
+
+    pour valider votre inscription chez trainingOrga,
+    vous pouvez valider votre compte sur le lien suivant:
+
+    http://localhost:3000/coaches/12/confirm?token=4j7d9CkrzxHssPTKQzv168z9
+
+Merci
+
+Redirected to http://localhost:3000/coaches/new
+Completed 302 Found in 380ms (ActiveRecord: 19.8ms | Allocations: 9551)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 19:27:33 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 728)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 4627)
+
+
+Started GET "/coaches/12/confirm?token=4j7d9CkrzxHssPTKQzv168z9" for 127.0.0.1 at 2020-02-24 19:27:47 +0100
+Processing by CoachesController#confirm as HTML
+  Parameters: {"token"=>"4j7d9CkrzxHssPTKQzv168z9", "id"=>"12"}
+  [1m[36mCoach Load (1.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:33:in `confirm'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from confirm at /Users/lucas/Desktop/ProjetWeb/app/controllers/concerns/coaches_controller.rb:37)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Update (4.2ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`confirmation_token` = NULL, `coaches`.`confirmed` = TRUE, `coaches`.`updated_at` = '2020-02-24 18:27:47.109496' WHERE `coaches`.`id` = 12[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 17ms (ActiveRecord: 7.4ms | Allocations: 5739)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:27:47 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.8ms | Allocations: 784)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 6268)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 19:27:55 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"UhB2rpOCrtGhtodw2A6/1nntCZnJ3lqbiDCUbnCnJCE5Zo/w9FBbhcB6P52GaEngua3GdhZswo268wPq+9eLFg==", "coach"=>{"username"=>"jul", "email"=>"jul@icloud.com", "firstname"=>"jul", "lastname"=>"jul", "phone_number"=>""}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Update (0.4ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`phone_number` = '', `coaches`.`updated_at` = '2020-02-24 18:27:55.238272' WHERE `coaches`.`id` = 12[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms | Allocations: 5940)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:27:55 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 789)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 6273)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:28:13 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 11.6ms | Allocations: 789)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.3ms | Allocations: 6259)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 19:33:05 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 789)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.4ms | Allocations: 6251)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-02-24 20:54:52 +0100
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8WP1ndxG/0g2GjdMHUkZoFR0JHY/a16m2d7rrxGARz6aFQzDu5QKHFfWj6FDL++WlDTrmeDZxrDrHXwrmvDoCQ=="}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 931)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:54:52 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 185ms (Views: 184.4ms | ActiveRecord: 0.0ms | Allocations: 4174)
+
+
+Started GET "/" for 127.0.0.1 at 2020-02-24 20:54:56 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4595)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 20:55:00 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 4592)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:55:04 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 4155)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 20:55:13 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"jn/+wG7XcqZiEXNrQL9NsniEsHEhgxQtwXrdEGOThUO58KNVSEBUvgRqtt+V3nQOdD26OUWq/mL81/2bCqDRWg==", "coach"=>{"username"=>"jul", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'jul')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 1068)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:55:13 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 4178)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 20:55:20 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"uqW2Fq/4PW8WBHlCaNzmDa6o6u8RwuD3oVgwUj52b95GnqSaLfxh+dlsv3QqfKIc+6YZK55XiP3mWrOiN3l0qQ==", "coach"=>{"username"=>"jul", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.8ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'jul')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms | Allocations: 1046)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:55:20 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4167)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 20:55:23 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 4590)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 20:55:44 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"fTxLBT4IEtCfmrqb6qMEl36yBNi7smO6701O/tZs7+fljDl1y9Vbp2HsXKVoHxiUBtigxzKjr4kQ4ijNacuFzA==", "coach"=>{"username"=>"jul", "firstname"=>"jul", "lastname"=>"jul", "email"=>"jul@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1011)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 230ms (Views: 6.5ms | ActiveRecord: 0.6ms | Allocations: 7447)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:55:51 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 4158)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 20:55:56 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"35cSjo6cVIMA4HvJCAcWyKeD+QxGASqcraKIETUBwm/oGE8bqAtym2abvn3dZi90qzrzRCIowNOQD6iaXDKWdg==", "coach"=>{"username"=>"jul", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'jul')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 1072)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:55:56 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 4173)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 20:55:59 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4593)
+
+
+Started POST "/coaches" for 127.0.0.1 at 2020-02-24 20:56:25 +0100
+Processing by CoachesController#create as HTML
+  Parameters: {"authenticity_token"=>"CvHogsGPDn/8AKTbgP6kK+Q8iWM3oJogL7DbUqaJ3KySQZryNFJHCAJ2QuUCQrgonFYtfL6xVhPQH71hGS62hw==", "coach"=>{"username"=>"lorenzo", "firstname"=>"lorenzo", "lastname"=>"lorenzo", "email"=>"lorenzo@icloud.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'lorenzo' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'lorenzo@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:17:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'lorenzo' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCACHE Coach Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'lorenzo@icloud.com' LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[36mCoach Create (2.3ms)[0m  [1m[32mINSERT INTO `coaches` (`username`, `email`, `password_digest`, `firstname`, `lastname`, `created_at`, `updated_at`, `confirmation_token`) VALUES ('lorenzo', 'lorenzo@icloud.com', '$2a$12$rIbmhZHZUMmFgoeMxzVJJe61UpW5w9/Irq6em9UVqAVaBjtWy12fu', 'lorenzo', 'lorenzo', '2020-02-24 19:56:25.922671', '2020-02-24 19:56:25.922671', 'Wj3oqjMkLTDSvUazmAauRhJb')[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:19:in `create'
+  Rendering coach_mailer/confirm.text.erb within layouts/mailer
+  Rendered coach_mailer/confirm.text.erb within layouts/mailer (Duration: 0.2ms | Allocations: 62)
+CoachMailer#confirm: processed outbound mail in 1.5ms
+Delivered mail 5e542a69e4ea8_f6fc3ff8ca659de0412a@MacBook-Pro-de-Lucas.local.mail (139.4ms)
+Date: Mon, 24 Feb 2020 20:56:25 +0100
+From: from@example.com
+To: lorenzo@icloud.com
+Message-ID: <5e542a69e4ea8_f6fc3ff8ca659de0412a@MacBook-Pro-de-Lucas.local.mail>
+Subject: Votre inscription sur TrainingOrgaProjetW
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+Bonjour lorenzo,
+
+    pour valider votre inscription chez trainingOrga,
+    vous pouvez valider votre compte sur le lien suivant:
+
+    http://localhost:3000/coaches/13/confirm?token=Wj3oqjMkLTDSvUazmAauRhJb
+
+Merci
+
+Redirected to http://localhost:3000/coaches/new
+Completed 302 Found in 385ms (ActiveRecord: 10.3ms | Allocations: 9553)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 20:56:26 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 728)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 4613)
+
+
+Started GET "/coaches/13/confirm?token=Wj3oqjMkLTDSvUazmAauRhJb" for 127.0.0.1 at 2020-02-24 20:56:36 +0100
+Processing by CoachesController#confirm as HTML
+  Parameters: {"token"=>"Wj3oqjMkLTDSvUazmAauRhJb", "id"=>"13"}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:33:in `confirm'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from confirm at /Users/lucas/Desktop/ProjetWeb/app/controllers/concerns/coaches_controller.rb:37)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'lorenzo' AND `coaches`.`id` != 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'lorenzo@icloud.com' AND `coaches`.`id` != 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[36mCoach Update (0.9ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`confirmation_token` = NULL, `coaches`.`confirmed` = TRUE, `coaches`.`updated_at` = '2020-02-24 19:56:36.390122' WHERE `coaches`.`id` = 13[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:37:in `confirm'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 13ms (ActiveRecord: 3.2ms | Allocations: 5572)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 20:56:36 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 784)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 6267)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-24 20:56:40 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"LrR/IZvJP8vemEwpnAXF+Jdstmc8GGDaMXk5OrR5Fp7Sj22tGc1jXRHwih/epYHpwmJFo7ONCNB2e7rKvXYN6Q==", "coach"=>{"username"=>"lorenzo", "email"=>"lorenzo@icloud.com", "firstname"=>"lorenzo", "lastname"=>"lorenzo", "phone_number"=>""}}
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'lorenzo' AND `coaches`.`id` != 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'lorenzo@icloud.com' AND `coaches`.`id` != 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Update (0.5ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`phone_number` = '', `coaches`.`updated_at` = '2020-02-24 19:56:40.883429' WHERE `coaches`.`id` = 13[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms | Allocations: 5928)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 20:56:40 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.8ms | Allocations: 789)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 6272)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-02-24 20:56:46 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YUcHrbh0AmJ9ULNBu63w83YY+1PdceJEK9A87wV87ASdfBUhOnBe9LI4dXf5DbTiIxYIl1Lkik5s0r8fDHP3cw=="}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 928)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:56:46 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 4169)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 20:56:52 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"pBUiPo1HBrZkMHv4DZlmQ4RC5T0g3OR58mFSNcAJ8LZrP4NxY9yEhTyNHhzTJAOgTG2hdXQaOVlEAdZ+1ZxtJQ==", "coach"=>{"username"=>"lorenzo", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = 1 AND (username OR email = 'lorenzo')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1050)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-24 20:56:52 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4168)
+
+
+Started GET "/coaches/13/confirm?token=Wj3oqjMkLTDSvUazmAauRhJb" for 127.0.0.1 at 2020-02-24 21:02:19 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#confirm as HTML
+  Parameters: {"token"=>"Wj3oqjMkLTDSvUazmAauRhJb", "id"=>"13"}
+  [1m[36mCoach Load (2.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:33:in `confirm'
+Redirected to http://localhost:3000/coaches/new
+Completed 302 Found in 4ms (ActiveRecord: 2.4ms | Allocations: 874)
+
+
+Started GET "/coaches/new" for 127.0.0.1 at 2020-02-24 21:02:19 +0100
+Processing by CoachesController#new as HTML
+  Rendering coaches/new.html.erb within layouts/application
+  Rendered coaches/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 4612)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 21:05:19 +0100
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:20:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/login" for 127.0.0.1 at 2020-02-24 21:05:31 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 320)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 4352)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-24 21:05:34 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XSFCh79DVeWBsVJL6eAra39vw0e2dA4pOJsCEYQaWuWSC+PIUdjX1tkMN683XU6It0CHD+Ky0wmO+4ZakY/Hdg==", "coach"=>{"username"=>"jul", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = true AND (username = 'jul' OR email = 'jul')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 234ms (ActiveRecord: 5.1ms | Allocations: 9875)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 21:05:35 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 861)
+  [1m[36mCACHE Coach Load (0.1ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 6699)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-24 21:10:11 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 861)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 6.9ms | ActiveRecord: 2.8ms | Allocations: 15016)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 09:57:51 +0100
+  [1m[35m (16.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (2.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 14.1ms | Allocations: 2041)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 168ms (Views: 73.9ms | ActiveRecord: 11.9ms | Allocations: 20981)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-02-25 09:57:55 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O9Tj7kwKIDWUeSyVyiNx2W/yRpCqiILn+YbpQdNudvn0/kKhopGiBszESXEUnhQ6p90C2P5OX8dP5m0Kxvvrag=="}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1043)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-02-25 09:57:55 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 646)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 5086)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-25 09:58:00 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"amqChshS0y5fmhQt0BMuQQTYcG+8TCjxx9JKdgNYpoYYL0/uciv7G3A4LdkyYU1ZPezfkzKMy1/F4gHJerDakg==", "coach"=>{"username"=>"jul", "password"=>"[FILTERED]"}}
+  [1m[36mCoach Load (1.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE (confirmed = true AND (username = 'jul' OR email = 'jul')) ORDER BY `coaches`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 228ms (ActiveRecord: 1.3ms | Allocations: 1268)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 09:58:00 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.3ms | Allocations: 797)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 6291)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-25 09:58:23 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"6d78mUcqfMt5wznpYACGMuR3LmtZpkSd6uWn9Q4+8IObmzHx/VNU/lZhAB2CcuUq3UOBl9dmpzPo1exKd9aMlw==", "coach"=>{"username"=>"jul", "email"=>"jul@icloud.com", "firstname"=>"jul", "lastname"=>"jul", "phone_number"=>"0666666666"}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Update (5.8ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`phone_number` = '0666666666', `coaches`.`updated_at` = '2020-02-25 08:58:23.409435' WHERE `coaches`.`id` = 12[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 19ms (ActiveRecord: 11.4ms | Allocations: 6409)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 09:58:23 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (2.9ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 791)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 3.0ms | Allocations: 6277)
+
+
+Started PATCH "/profil" for 127.0.0.1 at 2020-02-25 09:58:32 +0100
+Processing by CoachesController#update as HTML
+  Parameters: {"authenticity_token"=>"e6TInR5MvbEGEC7AtQpbnTHaV235hlM5y6WZH/1kf4sJ4QX1pDWVhCmyFzRXeDiFCO74kXdGsJfJldKghIwDnw==", "coach"=>{"photo_file"=>#<ActionDispatch::Http::UploadedFile:0x00007fd15957d398 @tempfile=#<Tempfile:/var/folders/_t/sj6k5drx50z4vr6g01j4xyzc0000gn/T/RackMultipart20200225-67389-5mrspd.jpg>, @original_filename="baptiste mouton.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"coach[photo_file]\"; filename=\"baptiste mouton.jpg\"\r\nContent-Type: image/jpeg\r\n">, "username"=>"jul", "email"=>"jul@icloud.com", "firstname"=>"jul", "lastname"=>"jul", "phone_number"=>"0666666666"}}
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[31mUnpermitted parameter: :lastname[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`username` = 'jul' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `coaches` WHERE `coaches`.`email` = 'jul@icloud.com' AND `coaches`.`id` != 12 LIMIT 1[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[36mCoach Update (6.7ms)[0m  [1m[33mUPDATE `coaches` SET `coaches`.`photo` = TRUE, `coaches`.`updated_at` = '2020-02-25 08:58:32.214573' WHERE `coaches`.`id` = 12[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/concerns/coaches_controller.rb:64:in `update'
+Redirected to http://localhost:3000/profil
+Completed 302 Found in 237ms (ActiveRecord: 14.5ms | Allocations: 6275)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 09:58:32 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.3ms | Allocations: 828)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 6313)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 09:58:44 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.3ms | Allocations: 6289)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:00:09 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1404)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.5ms | Allocations: 8165)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:07:08 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (1.8ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1464)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 8.4ms | ActiveRecord: 1.8ms | Allocations: 16731)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:07:10 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.3ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.4ms | Allocations: 6294)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:07:25 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (2.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1404)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 2.2ms | Allocations: 8163)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:08:09 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 896)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 9.9ms | ActiveRecord: 5.6ms | Allocations: 15094)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:08:12 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 823)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 6291)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:09:28 +0100
+  
+SyntaxError (/Users/lucas/Desktop/ProjetWeb/config/routes.rb:12: syntax error, unexpected tIDENTIFIER, expecting end
+...me', to: 'coaches#programme' as: :mes_programmes
+...                             ^~):
+  
+config/routes.rb:12: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:12: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:12: syntax error, unexpected tIDENTIFIER, expecting end
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:10:34 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.2ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1473)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 9.2ms | ActiveRecord: 3.2ms | Allocations: 16968)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:10:37 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1413)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 2554)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if @coach.errors.any? %>
+    2:     <div class="alert alert-danger">
+    3:         <ul>
+    4:             <% @coach.errors.full_messages.each do |message| %>
+  
+app/views/coaches/programme.html.erb:1
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:12:45 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 79)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.4ms | Allocations: 6332)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:24:07 +0100
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 99)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.4ms | Allocations: 6335)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:25:04 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 97)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.3ms | Allocations: 6339)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:25:28 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.2ms | Allocations: 98)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 6333)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:26:45 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.3ms | Allocations: 6342)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:27:07 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.2ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.3ms | Allocations: 6344)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:27:17 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 6345)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:30:26 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 6359)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:30:35 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 6347)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:30:43 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.3ms | Allocations: 6346)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:30:53 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 6353)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:33:22 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 1.0ms | Allocations: 89)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 6327)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:34:27 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 89)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 6326)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:34:54 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.3ms | Allocations: 6345)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:37:56 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.9ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 118)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.9ms | Allocations: 6356)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:41:05 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 124)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 0.6ms | Allocations: 6365)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:41:55 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.4ms | Allocations: 124)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 6358)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:43:35 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1404)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 7012)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:43:37 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (1.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 1.3ms | Allocations: 4986)
+
+
+Started GET "/" for 127.0.0.1 at 2020-02-25 10:51:54 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#new as HTML
+  [1m[36mCoach Load (1.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Redirected to http://localhost:3000/profil
+Filter chain halted as :only_signed_out rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms | Allocations: 887)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:51:54 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1399)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.5ms | Allocations: 8158)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:56:21 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 124)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 0.7ms | Allocations: 6364)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:56:39 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 4987)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 10:56:41 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (3.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1399)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 3.6ms | Allocations: 7005)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 10:56:44 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (14.9ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 6.2ms | ActiveRecord: 14.9ms | Allocations: 4985)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:01:44 +0100
+  
+SyntaxError (/Users/lucas/Desktop/ProjetWeb/config/routes.rb:13: syntax error, unexpected tIDENTIFIER, expecting end
+...es', to: 'coaches#exercices' as: :mes_exercises
+...                             ^~):
+  
+config/routes.rb:13: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:13: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:13: syntax error, unexpected tIDENTIFIER, expecting end
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:01:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/profil/programme"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:02:14 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 128)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+Completed 500 Internal Server Error in 311ms (ActiveRecord: 4.2ms | Allocations: 160655)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mes_exercices_path' for #<#<Class:0x00007fd159cb1358>:0x00007fd159cb89a0>
+Did you mean?  mes_exercises_path
+               mes_exercises_url):
+    36: 
+    37:             <p class="text-white bg-dark pl-3 ml-3 rounded">
+    38:               <li class="nav-item">
+    39:                 <%= link_to 'Mes programmes', mes_exercices_path %>
+    40:               </li>
+    41:             </p>
+    42: 
+  
+app/views/layouts/application.html.erb:39
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:02:52 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 5.9ms | ActiveRecord: 3.9ms | Allocations: 13752)
+
+
+Started GET "/profil/exercises" for 127.0.0.1 at 2020-02-25 11:02:58 +0100
+Processing by CoachesController#exercices as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/exercices.html.erb within layouts/application
+  Rendered coaches/exercices.html.erb within layouts/application (Duration: 1.4ms | Allocations: 83)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 5214)
+
+
+Started GET "/profil/exercises" for 127.0.0.1 at 2020-02-25 11:03:22 +0100
+Processing by CoachesController#exercices as HTML
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/exercices.html.erb within layouts/application
+  Rendered coaches/exercices.html.erb within layouts/application (Duration: 0.2ms | Allocations: 78)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 0.7ms | Allocations: 6369)
+
+
+Started GET "/profil" for 127.0.0.1 at 2020-02-25 11:07:18 +0100
+Processing by CoachesController#edit as HTML
+  [1m[36mCoach Load (0.7ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/edit.html.erb within layouts/application
+  Rendered coaches/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1463)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.7ms | Allocations: 7097)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:07:21 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.3ms | Allocations: 123)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 5255)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:08:31 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.6ms | Allocations: 5012)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:08:32 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 5007)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:09:06 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.6ms | Allocations: 5012)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:22 +0100
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.5ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 5012)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:22 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.6ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 5011)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:22 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 5014)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:23 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 5014)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:23 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.4ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 5006)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:23 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 5010)
+
+
+Started GET "/profil/programme" for 127.0.0.1 at 2020-02-25 11:15:24 +0100
+Processing by CoachesController#programme as HTML
+  [1m[36mCoach Load (0.3ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+  Rendering coaches/programme.html.erb within layouts/application
+  Rendered coaches/programme.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  [1m[36mCACHE Coach Load (0.0ms)[0m  [1m[34mSELECT `coaches`.* FROM `coaches` WHERE `coaches`.`id` = 12 LIMIT 1[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:53:in `current_coach'
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 5012)
+
+
