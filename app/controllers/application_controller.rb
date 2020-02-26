@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
 
         return nil if !session[:auth] || !session[:auth]['id']
 
-        return @_coach if @c_oach
+        return @_coach if @_coach
 
         @_coach = Coach.find_by_id(session[:auth]['id'])
 

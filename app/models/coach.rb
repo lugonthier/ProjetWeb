@@ -5,6 +5,8 @@ class Coach < ApplicationRecord
     has_secure_password
     has_secure_token :confirmation_token
 
+    has_many :programmes
+    
     after_save :photo_upload
     before_save :photo_before_upload
     after_destroy_commit :photo_destroy
